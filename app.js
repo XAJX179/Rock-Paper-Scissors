@@ -8,4 +8,14 @@ function getComputerChoice(){
     '';
     return computerChoice
 }
-console.log(getComputerChoice());
+console.log('Computer : '+getComputerChoice());
+
+// Human's Choice taken from input by user
+function getHumanChoice(){
+    let humanChoice = prompt('Rock Paper Scissors\nEnter your Choice : ')
+    humanChoice = humanChoice.toLowerCase();
+    if(humanChoice == 'rock'||humanChoice == 'paper'|| humanChoice =='scissors'){
+        return humanChoice;
+    }
+}
+console.log('Human : '+getHumanChoice())
