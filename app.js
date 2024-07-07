@@ -21,6 +21,11 @@ function getHumanChoice(){
 // console.log('Human : '+getHumanChoice())
 
 //Declaring Players Score Variables
+
+// playRound(getHumanChoice(),getComputerChoice());
+
+// logic to play 5 rounds a game
+function playGame(){
 let humanScore = 0;
 let computerScore = 0;
 
@@ -51,4 +56,9 @@ function playRound(humanChoice,computerChoice){
         }
 
 }
-playRound(getHumanChoice(),getComputerChoice());
+for(let i=0;i<5;i++){
+    playRound(getHumanChoice(),getComputerChoice());
+}
+}
+
+playGame();
