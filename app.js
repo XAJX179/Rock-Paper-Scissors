@@ -8,14 +8,47 @@ function getComputerChoice(){
     '';
     return computerChoice
 }
-console.log('Computer : '+getComputerChoice());
+// console.log('Computer : '+getComputerChoice());
 
 // Human's Choice taken from input by user
 function getHumanChoice(){
-    let humanChoice = prompt('Rock Paper Scissors\nEnter your Choice : ')
+    let humanChoice = prompt('Rock Paper Scissors\nEnter your Choice : ','')
     humanChoice = humanChoice.toLowerCase();
     if(humanChoice == 'rock'||humanChoice == 'paper'|| humanChoice =='scissors'){
         return humanChoice;
     }
 }
-console.log('Human : '+getHumanChoice())
+// console.log('Human : '+getHumanChoice())
+
+//Declaring Players Score Variables
+let humanScore = 0;
+let computerScore = 0;
+
+function playRound(humanChoice,computerChoice){
+        console.log('Human : '+humanChoice);
+        console.log('Computer : '+computerChoice);
+
+
+        if(humanChoice == computerChoice){
+            console.log(`%cIt\'s a TIE!!!! ¯\\_(ツ)_/¯`,'background-color:lightgrey')
+        }
+        else if(humanChoice == 'rock'&&computerChoice=='scissors'){
+            console.log(`%cYou Win!!! ヾ(⌐■_■)ノ`,'background-color:lightgreen')
+            humanScore++;
+
+        }
+        else if(humanChoice == 'paper'&& computerChoice=='rock'){
+            console.log(`%cYou Win!!! ヾ(⌐■_■)ノ`,'background-color:lightgreen')
+            humanScore++;
+            
+        }
+        else if(humanChoice == 'scissors' && computerChoice == 'paper'){
+            console.log(`%cYou Win!!! ヾ(⌐■_■)ノ`,'background-color:lightgreen')
+            humanScore++;
+        }else{
+            console.log('%cYou Lost!!! (ノಠ益ಠ)ノ彡┻━┻','background-color:red')
+            computerScore++;
+        }
+
+}
+playRound(getHumanChoice(),getComputerChoice());
