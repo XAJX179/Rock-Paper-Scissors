@@ -26,39 +26,54 @@ function getHumanChoice(){
 
 // logic to play 5 rounds a game
 function playGame(){
-let humanScore = 0;
-let computerScore = 0;
+        let humanScore = 0;
+        let computerScore = 0;
 
-function playRound(humanChoice,computerChoice){
-        console.log('Human : '+humanChoice);
-        console.log('Computer : '+computerChoice);
+        function playRound(humanChoice,computerChoice){
+                console.log('Human : '+humanChoice);
+                console.log('Computer : '+computerChoice);
 
 
-        if(humanChoice == computerChoice){
-            console.log(`%cIt\'s a TIE!!!! ¯\\_(ツ)_/¯`,'background-color:lightgrey')
+                if(humanChoice == computerChoice){
+                    console.log(`%cIt\'s a TIE!!!! ¯\\_(ツ)_/¯`,'background-color:lightgrey')
+                }
+                else if(humanChoice == 'rock'&&computerChoice=='scissors'){
+                    console.log(`%cYou Win!!! ヾ(⌐■_■)ノ`,'background-color:lightgreen')
+                    humanScore++;
+
+                }
+                else if(humanChoice == 'paper'&& computerChoice=='rock'){
+                    console.log(`%cYou Win!!! ヾ(⌐■_■)ノ`,'background-color:lightgreen')
+                    humanScore++;
+                    
+                }
+                else if(humanChoice == 'scissors' && computerChoice == 'paper'){
+                    console.log(`%cYou Win!!! ヾ(⌐■_■)ノ`,'background-color:lightgreen')
+                    humanScore++;
+                }else{
+                    console.log('%cYou Lost!!! (ノಠ益ಠ)ノ彡┻━┻','background-color:red')
+                    computerScore++;
+                }
+
         }
-        else if(humanChoice == 'rock'&&computerChoice=='scissors'){
-            console.log(`%cYou Win!!! ヾ(⌐■_■)ノ`,'background-color:lightgreen')
-            humanScore++;
+        for(let i=0;i<5;i++){
+            playRound(getHumanChoice(),getComputerChoice());
+        }
+        console.log('Human\'s Score : '+ humanScore +'\nComputer\'s Score : '+ computerScore)
 
-        }
-        else if(humanChoice == 'paper'&& computerChoice=='rock'){
-            console.log(`%cYou Win!!! ヾ(⌐■_■)ノ`,'background-color:lightgreen')
-            humanScore++;
-            
-        }
-        else if(humanChoice == 'scissors' && computerChoice == 'paper'){
-            console.log(`%cYou Win!!! ヾ(⌐■_■)ノ`,'background-color:lightgreen')
-            humanScore++;
-        }else{
-            console.log('%cYou Lost!!! (ノಠ益ಠ)ノ彡┻━┻','background-color:red')
-            computerScore++;
-        }
+        console.log('Final Winner : '+winner());
 
-}
-for(let i=0;i<5;i++){
-    playRound(getHumanChoice(),getComputerChoice());
-}
+        function winner(){
+            if(computerScore == humanScore){
+                return 'No one'
+            }
+            else if(computerScore>humanScore){
+                return 'Computer'
+            }
+            else{
+                return 'Human'
+            }
+        }
 }
 
 playGame();
