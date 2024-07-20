@@ -19,6 +19,7 @@ const pComputerScore = document.createElement("p");
 const pHumanScore = document.createElement("p");
 
 const message = document.createElement("div");
+message.innerText = "Rock Paper Scissors \n Start!!";
 
 const pHumanChoice = document.createElement("p");
 const pComputerChoice = document.createElement("p");
@@ -53,7 +54,9 @@ function playRound(humanChoice, computerChoice = getComputerChoice()) {
 
   if (computerScore == 5 || humanScore == 5) {
     message.innerText =
-      "Game Over || Winner is : " + winner() + " with 5 scores!!.";
+      "Game Over || Winner is : " +
+      winner() +
+      " with 5 scores!!. \n Start Again!!";
     humanScore = 0;
     computerScore = 0;
     pComputerScore.innerText = "Computer :" + computerScore;
@@ -109,3 +112,33 @@ div.appendChild(message);
 div.appendChild(divChoice);
 div.appendChild(divButtons);
 div.appendChild(divScore);
+
+//styling
+
+message.style.fontSize = "25px";
+message.style.textAlign = "center";
+message.style.padding = "50px";
+
+divChoice.style.background = "lightgrey";
+divChoice.style.display = "flex";
+divChoice.style.justifyContent = "space-around";
+divChoice.style.borderRadius = "50px";
+divChoice.style.padding = "30px";
+divChoice.style.fontSize = "25px";
+
+divButtons.style.display = "flex";
+divButtons.style.justifyContent = "space-around";
+divButtons.style.margin = "20px";
+
+const allBtn = document.querySelectorAll("div button");
+
+allBtn.forEach((button) => {
+  button.style.flexGrow = "1";
+  button.style.padding = "50px";
+  button.style.borderRadius = "50px";
+  button.style.fontSize = "20px";
+});
+
+divScore.style.display = "flex";
+divScore.style.justifyContent = "space-around";
+divScore.style.fontSize = "20px";
