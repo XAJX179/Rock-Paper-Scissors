@@ -29,22 +29,17 @@ function playRound(humanChoice, computerChoice = getComputerChoice()) {
   pComputerChoice.innerText = "Computer :" + computerChoice;
 
   if (humanChoice == computerChoice) {
-    // console.log(`%cIt\'s a TIE!!!! ¯\\_(ツ)_/¯`, "background-color:lightgrey");
     message.innerText = `It\'s a TIE!!!! ¯\\_(ツ)_/¯`;
   } else if (humanChoice == "rock" && computerChoice == "scissors") {
-    // console.log(`%cYou Win!!! ヾ(⌐■_■)ノ`, "background-color:lightgreen");
     message.innerText = `You Win!!! ヾ(⌐■_■)ノ`;
     humanScore++;
   } else if (humanChoice == "paper" && computerChoice == "rock") {
-    // console.log(`%cYou Win!!! ヾ(⌐■_■)ノ`, "background-color:lightgreen");
     message.innerText = `You Win!!! ヾ(⌐■_■)ノ`;
     humanScore++;
   } else if (humanChoice == "scissors" && computerChoice == "paper") {
-    // console.log(`%cYou Win!!! ヾ(⌐■_■)ノ`, "background-color:lightgreen");
     message.innerText = `You Win!!! ヾ(⌐■_■)ノ`;
     humanScore++;
   } else {
-    // console.log("%cYou Lost!!! (ノಠ益ಠ)ノ彡┻━┻", "background-color:red");
     message.innerText = `You Lost!!! (ノಠ益ಠ)ノ彡┻━┻`;
     computerScore++;
   }
